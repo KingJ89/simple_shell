@@ -1,18 +1,17 @@
 #include "shell.h"
 
 /**
- * main - functions entry point.
- * @ac: size of arguments.
- * @av: list of arguments.
- * Return: 0 on success>
+ * main - entry point
+ * @ac: size of arguments
+ * @av: list of arguments
+ *
+ * Return: 0 on success
  */
-
 int main(int ac, char **av)
 {
 	char *input = NULL, **command = NULL;
 	int status = 0;
 	(void) ac;
-	(void) av;
 
 	while (1)
 	{
@@ -23,6 +22,13 @@ int main(int ac, char **av)
 				write(STDOUT_FILENO, "\n", 1);
 			break;
 		}
+
+		command = find_command(input);
+		if (!command)
+			continue;
+
+		status = excute_command(command, av);
 	}
-	return (0);
+
+	return (status);
 }
