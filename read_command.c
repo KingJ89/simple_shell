@@ -1,6 +1,7 @@
 #include "shell.h"
 
 /**
+<<<<<<< HEAD
  * read_command - function reads a line of input from user.
  * Return: pointer to the input string, or NULL if error
  */

@@ -7,9 +7,26 @@
 #include <string.h>
 #include <limits.h>
 #include <errno.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <sys/wait.h>
+#include <sys/stat.h>
+#include <sys/types.h>
 
+#define DELIM " \t\n"
 
-int main(int ac, char **av);
+#define STAT_FAILURE 127
+
+extern char **environ;
+
 char *read_command(void);
+char **find_command(char *input);
+int excute_command(char **command, char **av);
+
+/*   free memory       */
+void free_list(char **);
+
+/*   strings functions */
+char *_strdup(char *);
 
 #endif
