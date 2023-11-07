@@ -26,12 +26,14 @@ char **find_command(char *input)
 	if (!cmd)
 	{
 		free(input), input = NULL;
+		free(tmp), tmp = NULL;
 		return (NULL);
 	}
 
 	token = strtok(input, "\n");
 	cmd[0] = _strdup(token);
 	free(input), input = NULL;
+	free(tmp), tmp = NULL;
 	cmd[1] = NULL;
 
 	return (cmd);
