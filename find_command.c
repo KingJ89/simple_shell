@@ -1,40 +1,25 @@
 #include "shell.h"
 
 /**
- * find_command - return one command from an input
- * @input: input string parameter
- *
- * Return: one command, NULL if it fails.
+ * find_command - divides input into arrays of token strings.
+ * @input: input to be tokenized.
+ * Return: array of tokens on success and Null on error.
  */
 char **find_command(char *input)
 {
-	char *tmp = NULL, *token = NULL, **cmd = NULL;
+	size_t num_tokens = 0;
+	char **tokens = NULL;
 
-	if (!input)
-		return (NULL);
+	num_tokens = count_tokens(input);
 
-	tmp = _strdup(input);
-	token = strtok(tmp, DELIM);
-	if (token == NULL)
-	{
-		free(tmp), tmp = NULL;
-		free(input), input = NULL;
-		return (NULL);
-	}
+	if (num_tokens == 0)
+		return(NULL)
 
-	cmd = malloc(sizeof(char *) * 2);
-	if (!cmd)
-	{
-		free(input), input = NULL;
-		free(tmp), tmp = NULL;
-		return (NULL);
-	}
+			tokens = malloc(sizeof(char *) * (num_tokens + 1));
+	if (!tokens)
+		free(input), input = Null;
+	return (NULL);
 
-	token = strtok(input, "\n");
-	cmd[0] = _strdup(token);
-	free(input), input = NULL;
-	free(tmp), tmp = NULL;
-	cmd[1] = NULL;
-
-	return (cmd);
+	tokenize(tokens, input);
+	return (tokens);
 }
