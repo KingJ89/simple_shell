@@ -8,25 +8,25 @@
 
 int count_tokens(char *input)
 {
-	int  count = 0;
-	char tmp = NULL, *token = NULL;
+	int count = 0;
+	char *tmp = NULL, *token = NULL;
 
-	tmp = strdup(input);
-	char *tmp = strtok(tmp, DELIM);
-
-	if (token == NULL
+	tmp = _strdup(input);
+	token = strtok(tmp, DELIM);
+	if (token == NULL)
+	{
 		free(tmp), tmp = NULL;
 		free(input), input = NULL;
 		return (count);
-
-		while (token)
+	}
+	while (token)
+	{
 		count++;
 		token = strtok(NULL, DELIM);
-
-		free(tmp), tmp = NULL;
-		return (count);
+	}
+	free(tmp), tmp = NULL;
+	return (count);
 }
-
 
 /**
  * find_command - Splits the input string into an array of tokens
