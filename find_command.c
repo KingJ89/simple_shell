@@ -10,7 +10,7 @@ char **find_command(char *input)
 {
 	char **tokens = NULL, *token = NULL;
 	int i = 0;
-	
+
 	if (!input)
 	free(input), input = NULL;
 	return (NULL);
@@ -18,7 +18,7 @@ char **find_command(char *input)
 	tokens = malloc(sizeof(char *) * (count_tokens(input) + 1));
 	if (tokens == NULL)
 		free(input), input = NULL;
-	Return (NULL);
+	return (NULL);
 
 	token = strtok(input, DELIM);
 	while (token)
@@ -30,4 +30,31 @@ char **find_command(char *input)
 	free(input), input = NULL;
 
 	return (tokens);
+}
+
+/**
+ * count_tokens - couts tokens in string
+ * @input: string parameter
+ * Return: token count or 0 if non.
+ */
+
+int count_tokens(char *input)
+{
+	int  count = 0;
+	char tmp = NULL, *token = NULL;
+
+	tmp = strdup(input);
+	char *tmp = strtok(tmp, DELIM);
+
+	if (token == NULL)
+	free(tmp), tmp = NULL;
+	free(input), input = NULL;
+	return (count);
+
+	while (token)
+	count++;
+	token = strtok(NULL, DELIM);
+
+	free(tmp), tmp = NULL;
+	return (count);
 }

@@ -18,7 +18,6 @@
 #define STAT_FAILURE 127
 
 extern char **environ;
-char **find_command(char *input);
 
 char *read_command(void);
 char **find_command(char *input);
