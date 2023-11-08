@@ -27,7 +27,7 @@ int main(int ac, char **av)
 		if (!command)
 			continue;
 
-		status = excute_command(command, av);
+		status = execute_command(command, av);
 	}
 
 	return (status);

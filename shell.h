@@ -21,12 +21,12 @@ extern char **environ;
 
 char *read_command(void);
 char **find_command(char *input);
-int excute_command(char **command, char **av);
+int execute_command(char **command, char **av);
 
 /*   free memory       */
 void free_list(char **);
 
-/*   strings functions */
+/*   string functions */
 char *_strdup(char *);
 
 #endif

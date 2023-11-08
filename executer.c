@@ -1,13 +1,13 @@
 #include "shell.h"
 
 /**
- * excute_command - excute shell command givin
+ * execute_command - execute shell command givin
  * @command: full command
  * @av: the arguments vector
  *
  * Return: 0 on success, 127 on failure
  */
-int excute_command(char **command, char **av)
+int execute_command(char **command, char **av)
 {
 	pid_t pid = fork();
 	int stat_loc;
