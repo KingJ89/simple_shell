@@ -10,7 +10,7 @@
 int main(int ac, char **av)
 {
 	char *input = NULL, **command = NULL;
-	int status = 0;
+	int status = 0, count = 0;
 	(void) ac;
 
 	while (1)
@@ -19,15 +19,16 @@ int main(int ac, char **av)
 		if (!input)
 		{
 			if (isatty(STDIN_FILENO))
-				write(STDOUT_FILENO, "\n", 1);
+				_putchar('\n');
 			break;
 		}
+		count++;
 
 		command = find_command(input);
 		if (!command)
 			continue;
 
-		status = execute_command(command, av);
+		status = execute_command(command, av, count);
 	}
 
 	return (status);
