@@ -17,8 +17,6 @@
 
 #define STAT_FAILURE 127
 
-int count_tokens(char *input);
-
 extern char **environ;
 
 char *read_command(void);
