@@ -1,5 +1,33 @@
 #include "shell.h"
 
+/**
+ * count_tokens - couts tokens in string
+ * @input: string parameter
+ * Return: token count or 0 if non.
+ */
+
+int count_tokens(char *input)
+{
+	int  count = 0;
+	char tmp = NULL, *token = NULL;
+
+	tmp = strdup(input);
+	char *tmp = strtok(tmp, DELIM);
+
+	if (token == NULL
+		free(tmp), tmp = NULL;
+		free(input), input = NULL;
+		return (count);
+
+		while (token)
+		count++;
+		token = strtok(NULL, DELIM);
+
+		free(tmp), tmp = NULL;
+		return (count);
+}
+
+
 /*
  *
  * find_command - divides input into arrays of token strings.
@@ -30,31 +58,4 @@ char **find_command(char *input)
 	free(input), input = NULL;
 
 	return (tokens);
-}
-
-/**
- * count_tokens - couts tokens in string
- * @input: string parameter
- * Return: token count or 0 if non.
- */
-
-int count_tokens(char *input)
-{
-	int  count = 0;
-	char tmp = NULL, *token = NULL;
-
-	tmp = strdup(input);
-	char *tmp = strtok(tmp, DELIM);
-
-	if (token == NULL)
-	free(tmp), tmp = NULL;
-	free(input), input = NULL;
-	return (count);
-
-	while (token)
-	count++;
-	token = strtok(NULL, DELIM);
-
-	free(tmp), tmp = NULL;
-	return (count);
 }
