@@ -41,15 +41,16 @@ int count_tokens(char *input)
 char **find_command(char *input)
 {
 	char **tokens = NULL, *token = NULL;
-	int i = 0;
+	int i = 0, count = 0;
 
 	if (!input)
-	{
-		free(input), input = NULL;
 		return (NULL);
-	}
 
-	tokens = malloc(sizeof(char *) * (count_tokens(input) + 1));
+	count = count_tokens(input);
+	if (count == 0)
+		return (NULL);
+
+	tokens = malloc(sizeof(char *) * (count + 1));
 	if (tokens == NULL)
 	{
 		free(input), input = NULL;
