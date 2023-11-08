@@ -28,32 +28,34 @@ int count_tokens(char *input)
 }
 
 
-/*
+/**
+ * find_command - Splits the input string into an array of tokens
+ * @input: The input string to tokenize.
  *
- * find_command - divides input into arrays of token strings.
- * @input: input to be tokenized.
- * Return: array of tokens on success and Null on error.
- */
+ * Return: An array of tokens or NULL if tokenization fails.
+*/
 char **find_command(char *input)
 {
 	char **tokens = NULL, *token = NULL;
 	int i = 0;
 
 	if (!input)
-	free(input), input = NULL;
-	return (NULL);
-
+	{
+		free(input), input = NULL;
+		return (NULL);
+	}
 	tokens = malloc(sizeof(char *) * (count_tokens(input) + 1));
 	if (tokens == NULL)
+	{
 		free(input), input = NULL;
-	return (NULL);
-
+		return (NULL);
+	}
 	token = strtok(input, DELIM);
 	while (token)
-
+	{
 		tokens[i++] = _strdup(token);
-	token = strtok(NULL, DELIM);
-
+		token = strtok(NULL, DELIM);
+	}
 	tokens[i] = NULL;
 	free(input), input = NULL;
 
