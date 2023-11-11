@@ -27,7 +27,18 @@ int main(int ac, char **av)
 		if (!command)
 			continue;
 
-		status = excute_command(command, av);
+	status = exit_shell(command, status);
+
+	if (status == 0)
+		if (_strcmp(command[0], "env") == 0)
+			print_env(command);
+	status = 0;
+
+	status = _execute(command, av, count);
+
+		else if (status != 2)
+			status = _execute(command, av, count);
+
 	}
 
 	return (status);
