@@ -28,22 +28,6 @@ char *_strdup(char *str)
 }
 
 /**
- * starts_with - checks if needle starts with haystack
- * @haystack: string to search
- * @needle: the substring to find
- *
- * Return: address of next char of haystack or NULL
- */
-char *starts_with(const char *haystack, const char *needle)
-{
-	while (*needle)
-		if (*needle++ != *haystack++)
-			return (NULL);
-
-	return ((char *)haystack);
-}
-
-/**
  * _strlen - returns the length of a string
  * @str: the string get length
  *
@@ -104,4 +88,28 @@ char *_strcat(char *dest, char *src)
 		*dest++ = *src++;
 	*dest = *src;
 	return (ret);
+}
+
+/**
+ * _strcmp - performs lexicographic comparaison of two strangs
+ * @s1: first string
+ * @s2: second string
+ *
+ * Return: negative if s1 < s2, positif if s1 > s2, 0 if s1 == s2
+ */
+int _strcmp(char *s1, char *s2)
+{
+	while (*s1 && *s2)
+	{
+		if (*s1 != *s2)
+			return (*s1 - *s2);
+
+		s1++;
+		s2++;
+	}
+
+	if (*s1 == *s2)
+		return (0);
+	else
+		return (*s1 < *s2 ? -1 : 1);
 }

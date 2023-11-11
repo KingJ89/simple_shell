@@ -20,6 +20,7 @@
 
 extern char **environ;
 
+/*   main functions  */
 char *read_command(void);
 char **find_command(char *);
 int execute_command(char **, char **, int);
@@ -31,10 +32,13 @@ void free_list(char **);
 
 /*   string functions  */
 char *_strdup(char *);
-char *starts_with(const char *, const char *);
 int _strlen(char *);
 char *_strcpy(char *, char *);
 char *_strcat(char *, char *);
+int _strcmp(char *, char *);
+
+/*   more string functions  */
+char *starts_with(const char *, const char *);
 
 /*   prints            */
 int _putchar(char);
@@ -42,7 +46,10 @@ void _puts(char *);
 void print_number(int);
 void print_error(char *, int, char *);
 
-/* TOOLS FUNCTIONS */
+/*   tools functions */
 int _abs(int);
+
+/*   builtins  */
+int exit_shell(char **, int);
 
 #endif

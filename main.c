@@ -28,7 +28,9 @@ int main(int ac, char **av)
 		if (!command)
 			continue;
 
-		status = execute_command(command, av, count);
+		status = exit_shell(command, status);
+		if (status == 0)
+			status = execute_command(command, av, count);
 	}
 
 	return (status);
