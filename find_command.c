@@ -6,7 +6,6 @@
  *
  * Return: token count or 0 if non.
  */
-
 int count_tokens(char *input)
 {
 	int count = 0;
