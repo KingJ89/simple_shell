@@ -30,7 +30,13 @@ int main(int ac, char **av)
 
 		status = exit_shell(command, status);
 		if (status == 0)
-			status = execute_command(command, av, count);
+		{
+			if (_strcmp(command[0], "env") == 0)
+			{
+				status = print_env(command);
+			} else
+				status = execute_command(command, av, count);
+		}
 	}
 
 	return (status);

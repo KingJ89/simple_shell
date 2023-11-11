@@ -49,7 +49,8 @@ void print_error(char *, int, char *);
 /*   tools functions */
 int _abs(int);
 
-/*   builtins  */
+/*   builtins         */
 int exit_shell(char **, int);
+int print_env(char **);
 
 #endif
