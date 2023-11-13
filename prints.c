@@ -57,11 +57,13 @@ void print_number(int n)
  * @shell_name: string contain program name
  * @count: the error count
  * @cmd: string containing specified error
+ * @msg: message error to display
+ * @arg: illegal argument
  *
  * Return: 0 if no numbers in string, converted number otherwise
  *        -1 on error
  */
-void print_error(char *shell_name, int count, char *cmd)
+void print_error(char *shell_name, int count, char *cmd, char *msg, char *arg)
 {
 	_puts(shell_name);
 	_puts(": ");
@@ -69,5 +71,11 @@ void print_error(char *shell_name, int count, char *cmd)
 	_puts(": ");
 	_puts(cmd);
 	_puts(": ");
-	_puts("not found\n");
+	_puts(msg);
+	if (arg)
+	{
+		_puts(": ");
+		_puts(arg);
+	}
+	_putchar('\n');
 }

@@ -17,6 +17,7 @@
 
 #define STAT_FAILURE 127
 #define	STAT_EACCES 126
+#define	STAT_ILLEGAL_NUMBER 2
 
 extern char **environ;
 
@@ -44,13 +45,15 @@ char *starts_with(const char *, const char *);
 int _putchar(char);
 void _puts(char *);
 void print_number(int);
-void print_error(char *, int, char *);
+void print_error(char *, int, char *, char *, char *);
 
 /*   tools functions */
 int _abs(int);
+int _atoi(char *);
+int positif_digits(char *);
 
 /*   builtins         */
-int exit_shell(char **, int);
+int exit_shell(char **, int, char **, int);
 int print_env(char **);
 
 #endif

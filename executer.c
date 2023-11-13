@@ -17,7 +17,7 @@ int execute_command(char **command, char **av, int count)
 	path = find_path(command[0]);
 	if (!path)
 	{
-		print_error(av[0], count, command[0]);
+		print_error(av[0], count, command[0], "not found", NULL);
 		free_list(command);
 		return (STAT_FAILURE);
 	}

@@ -15,3 +15,41 @@ int _abs(int n)
 
 	return (n * (-1));
 }
+
+/**
+ * _atoi - convert string to an int
+ * @s: pointer char parameter
+ *
+ * Return: number converted, 0 if no number digit found
+ */
+int _atoi(char *s)
+{
+	int i, res = 0;
+
+	for (i = 0; s[i] != '\0'; i++)
+	{
+		res = res * 10 + s[i] - '0';
+	}
+
+	return (res);
+}
+
+/**
+ * positif_digits - check if string has only positif digits
+ * @s: string parameter
+ *
+ * Return: converted string to integer, otherwise -1
+ */
+int positif_digits(char *s)
+{
+	int i;
+
+	if (!s)
+		return (-1);
+
+	for (i = 0; s[i]; i++)
+		if (s[i] < '0' || s[i] > '9')
+			return (-1);
+
+	return (_atoi(s));
+}

@@ -28,7 +28,7 @@ int main(int ac, char **av)
 		if (!command)
 			continue;
 
-		status = exit_shell(command, status);
+		status = exit_shell(command, status, av, count);
 		if (status == 0)
 		{
 			if (_strcmp(command[0], "env") == 0)
