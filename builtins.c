@@ -13,6 +13,7 @@ int exit_shell(char **command, int status, char **av, int count)
 {
 	int exit_status;
 
+	exit_status = 0;
 	if (_strcmp(command[0], "exit") == 0)
 	{
 		exit_status = status;
@@ -32,7 +33,7 @@ int exit_shell(char **command, int status, char **av, int count)
 		exit(exit_status);
 	}
 
-	return (0);
+	return (exit_status);
 }
 
 /**

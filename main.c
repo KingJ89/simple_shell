@@ -36,8 +36,7 @@ int main(int ac, char **av)
 				status = print_env(command);
 			} else
 				status = execute_command(command, av, count);
-		} else if (status != STAT_ILLEGAL_NUMBER)
-			status = execute_command(command, av, count);
+		}
 	}
 
 	return (status);
