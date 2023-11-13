@@ -53,3 +53,21 @@ int positif_digits(char *s)
 
 	return (_atoi(s));
 }
+
+/**
+ * handle_comments - delete everythings that is preceded by '#'
+ * @input: input string to handle comment
+ */
+void handle_comments(char *input)
+{
+	int i;
+
+	for (i = 0; input[i] != '\0'; i++)
+	{
+		if (input[i] == '#' && (!i || input[i - 1] == ' '))
+		{
+			input[i] = '\0';
+			break;
+		}
+	}
+}

@@ -20,6 +20,7 @@ char *read_command(void)
 		free(line), line = NULL;
 		return (NULL);
 	}
+	handle_comments(line);
 
 	return (line);
 }
