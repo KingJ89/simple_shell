@@ -51,7 +51,11 @@ void print_error(char *, int, char *, char *, char *);
 int _abs(int);
 int _atoi(char *);
 int positif_digits(char *);
+char *_itoa(int);
+
+/*   handlers        */
 void handle_comments(char *);
+void handle_variables(char **, int);
 
 /*   builtins         */
 int exit_shell(char **, int, char **, int);

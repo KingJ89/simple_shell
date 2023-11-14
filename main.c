@@ -25,6 +25,7 @@ int main(int ac, char **av)
 		count++;
 
 		command = find_command(input);
+		handle_variables(command, status);
 		if (!command)
 			continue;
 

@@ -55,19 +55,35 @@ int positif_digits(char *s)
 }
 
 /**
- * handle_comments - delete everythings that is preceded by '#'
- * @input: input string to handle comment
+ * _itoa - convert integer number to string
+ * @nbr: integer parameter
+ *
+ * Return: string number
  */
-void handle_comments(char *input)
+char *_itoa(int nbr)
 {
-	int i;
+	char buf[10], aux;
+	int i = 0, j = 0;
 
-	for (i = 0; input[i] != '\0'; i++)
+	if (nbr == 0)
+		buf[i++] = '0';
+	else
 	{
-		if (input[i] == '#' && (!i || input[i - 1] == ' '))
-		{
-			input[i] = '\0';
-			break;
-		}
+		do {
+			buf[i++] = (nbr % 10) + '0';
+			nbr /= 10;
+		} while (nbr != 0);
 	}
+
+	buf[i] = '\0';
+	while (j < (i - 1))
+	{
+		aux = buf[j];
+		buf[j] = buf[i - 1];
+		buf[i - 1] = aux;
+		j++;
+		i--;
+	}
+
+	return (_strdup(buf));
 }
