@@ -60,5 +60,6 @@ void handle_variables(char **, int);
 /*   builtins         */
 int exit_shell(char **, int, char **, int);
 int print_env(char **);
+int handle_cd(char **, char **, int);
 
 #endif

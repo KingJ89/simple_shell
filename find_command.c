@@ -4,7 +4,7 @@
  * count_tokens - counts tokens in string
  * @input: string parameter
  *
- * Return: token count or 0 if non.
+ * Return: token count or 0 if not.
  */
 int count_tokens(char *input)
 {

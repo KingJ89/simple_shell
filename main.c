@@ -29,14 +29,19 @@ int main(int ac, char **av)
 		if (!command)
 			continue;
 
-		status = exit_shell(command, status, av, count);
-		if (status == 0)
+		if (_strcmp(command[0], "cd") == 0)
+			status = handle_cd(command, av, count);
+		else
 		{
-			if (_strcmp(command[0], "env") == 0)
+			status = exit_shell(command, status, av, count);
+			if (status == 0)
 			{
-				status = print_env(command);
-			} else
-				status = execute_command(command, av, count);
+				if (_strcmp(command[0], "env") == 0)
+				{
+					status = print_env(command);
+				} else
+					status = execute_command(command, av, count);
+			}
 		}
 	}
 
