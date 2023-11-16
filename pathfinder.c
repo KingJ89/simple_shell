@@ -14,7 +14,7 @@ char *find_path(char *command)
 	if (!command)
 		return (NULL);
 
-	if (starts_with(command, "/"))
+	if (starts_with(command, "/") || starts_with(command, "./"))
 	{
 		if (stat(command, &st) == 0)
 			return (_strdup(command));
