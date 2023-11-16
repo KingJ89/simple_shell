@@ -18,7 +18,7 @@ char *_getenv(char *name_env)
 	{
 		tmp_env = _strdup(environ[i]);
 		tmp = strtok(tmp_env, "=");
-		if (_strcmp(tmp, name) == 0)
+		if (starts_with(tmp, name))
 		{
 			if (tmp)
 				path = strtok(NULL, "=");
