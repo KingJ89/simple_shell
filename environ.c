@@ -17,10 +17,12 @@ char *_getenv(char *name)
 		path = starts_with(tmp, name);
 		if (path)
 		{
+			path++;
 			env = _strdup(path);
 			free(tmp), tmp = NULL;
 			return (env);
 		}
+
 		free(tmp), tmp = NULL;
 	}
 
