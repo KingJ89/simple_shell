@@ -44,7 +44,7 @@ char *starts_with(const char *, const char *);
 /*   prints            */
 int _putchar(char, int);
 void _puts(char *, int);
-void print_number(int);
+void print_number(int, int);
 void print_error(char *, int, char *, char *, char *);
 
 /*   tools functions */

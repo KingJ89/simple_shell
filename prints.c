@@ -37,20 +37,20 @@ void _puts(char *str, int stdtype)
  * print_number - print a number
  * @n: integer parameter
  */
-void print_number(int n)
+void print_number(int n, int stdtype)
 {
 	if (n < 0)
 	{
 		n = _abs(n);
-		_putchar('-', 1);
+		_putchar('-', stdtype);
 	}
 
 	if (n >= 10)
 	{
-		print_number(n / 10);
+		print_number(n / 10, stdtype);
 	}
 
-	_putchar('0' + (n % 10), 1);
+	_putchar('0' + (n % 10), stdtype);
 }
 
 /**
@@ -68,7 +68,7 @@ void print_error(char *shell_name, int count, char *cmd, char *msg, char *arg)
 {
 	_puts(shell_name, 2);
 	_puts(": ", 2);
-	print_number(count);
+	print_number(count, 2);
 	_puts(": ", 2);
 	_puts(cmd, 2);
 	_puts(": ", 2);
