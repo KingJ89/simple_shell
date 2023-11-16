@@ -42,8 +42,8 @@ int _strcmp(char *, char *);
 char *starts_with(const char *, const char *);
 
 /*   prints            */
-int _putchar(char);
-void _puts(char *);
+int _putchar(char, int);
+void _puts(char *, int);
 void print_number(int);
 void print_error(char *, int, char *, char *, char *);
 

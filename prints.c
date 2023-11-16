@@ -3,13 +3,14 @@
 /**
  * _putchar - writes the character c to stdout
  * @c: The character to print
+ * @stdtype: stream value
  *
  * Return: On success 1.
  * On error, -1 is returned, and errno is set appropriately.
  */
-int _putchar(char c)
+int _putchar(char c, int stdtype)
 {
-	return (write(1, &c, 1));
+	return (write(stdtype, &c, 1));
 }
 
 /**
@@ -18,7 +19,7 @@ int _putchar(char c)
  *
  * Return: Nothing
  */
-void _puts(char *str)
+void _puts(char *str, int stdtype)
 {
 	int i = 0;
 
@@ -27,7 +28,7 @@ void _puts(char *str)
 
 	while (str[i] != '\0')
 	{
-		_putchar(str[i]);
+		_putchar(str[i], stdtype);
 		i++;
 	}
 }
@@ -41,7 +42,7 @@ void print_number(int n)
 	if (n < 0)
 	{
 		n = _abs(n);
-		_putchar('-');
+		_putchar('-', 1);
 	}
 
 	if (n >= 10)
@@ -49,7 +50,7 @@ void print_number(int n)
 		print_number(n / 10);
 	}
 
-	_putchar('0' + n % 10);
+	_putchar('0' + (n % 10), 1);
 }
 
 /**
@@ -65,17 +66,17 @@ void print_number(int n)
  */
 void print_error(char *shell_name, int count, char *cmd, char *msg, char *arg)
 {
-	_puts(shell_name);
-	_puts(": ");
+	_puts(shell_name, 2);
+	_puts(": ", 2);
 	print_number(count);
-	_puts(": ");
-	_puts(cmd);
-	_puts(": ");
-	_puts(msg);
+	_puts(": ", 2);
+	_puts(cmd, 2);
+	_puts(": ", 2);
+	_puts(msg, 2);
 	if (arg)
 	{
-		_puts(": ");
-		_puts(arg);
+		_puts(": ", 2);
+		_puts(arg, 2);
 	}
-	_putchar('\n');
+	_putchar('\n', 2);
 }

@@ -48,8 +48,8 @@ int print_env(char **command)
 
 	for (i = 0; environ[i]; i++)
 	{
-		_puts(environ[i]);
-		_putchar('\n');
+		_puts(environ[i], 1);
+		_putchar('\n', 1);
 	}
 
 	free_list(command);
@@ -73,7 +73,7 @@ int exec_chdir(char *input)
 	else if (strcmp(input, "-") == 0)
 	{
 		path = _getenv("OLDPWD=");
-		_puts(path), _putchar('\n');
+		_puts(path, 1), _putchar('\n', 1);
 	}
 	else
 		res = chdir(input);

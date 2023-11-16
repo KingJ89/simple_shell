@@ -3,15 +3,14 @@
 /**
  * _abs - computes the absolute value of an integer
  * for a parametre given
- * @n: integer parametere give
+ * @n: integer parametere given
+ *
  * Return: the absolute value of the parameter
  */
 int _abs(int n)
 {
 	if (n > 0 || n == 0)
-	{
 		return (n);
-	}
 
 	return (n * (-1));
 }
@@ -28,7 +27,7 @@ int _atoi(char *s)
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
-		res = res * 10 + s[i] - '0';
+		res = (res * 10) + s[i] - '0';
 	}
 
 	return (res);

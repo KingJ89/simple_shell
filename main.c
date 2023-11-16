@@ -19,7 +19,7 @@ int main(int ac, char **av)
 		if (!input)
 		{
 			if (isatty(STDIN_FILENO))
-				_putchar('\n');
+				_putchar('\n', 1);
 			break;
 		}
 		count++;

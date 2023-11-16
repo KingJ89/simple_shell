@@ -12,7 +12,7 @@ char *read_command(void)
 	ssize_t linelen;
 
 	if (isatty(STDIN_FILENO))
-		_puts("$ ");
+		_puts("$ ", 1);
 
 	linelen = getline(&line, &linecap, stdin);
 	if (linelen == -1)
