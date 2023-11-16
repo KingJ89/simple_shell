@@ -65,7 +65,7 @@ int print_env(char **command)
  */
 int exec_chdir(char *input)
 {
-	char *path = NULL;
+	char *path = NULL, buf[1024];
 	int res = 0;
 
 	if (!input || strcmp(input, "~") == 0)
@@ -73,7 +73,11 @@ int exec_chdir(char *input)
 	else if (strcmp(input, "-") == 0)
 	{
 		path = _getenv("OLDPWD=");
-		_puts(path, 1), _putchar('\n', 1);
+		if (!path)
+			_puts(getcwd(buf, 1024), 1), _putchar('\n', 1);
+		else
+			_puts(path, 1), _putchar('\n', 1);
+		res = 1;
 	}
 	else
 		res = chdir(input);
@@ -109,7 +113,7 @@ int handle_cd(char **command, char **av, int count)
 		print_error(av[0], count, command[0], tmp, NULL);
 		exit_status = STAT_ILLEGAL_NUMBER;
 	}
-	else
+	else if (value == 0)
 	{
 		tmp = _getenv("PWD=");
 		setenv("OLDPWD", tmp, 1);
